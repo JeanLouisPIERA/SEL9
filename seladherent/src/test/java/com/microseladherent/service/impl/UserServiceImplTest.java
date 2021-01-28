@@ -375,40 +375,29 @@ public class UserServiceImplTest {
 		
 	}
 	
-	/*
-	 * @Override public User updateAccount(Long id, UpdateUserDTO updateUserDTO)
-	 * throws EntityNotFoundException, DeniedAccessException,
-	 * WrongParametersException {
-	 * 
-	 * 
-	 * if(!updateUserDTO.getPasswordToChange().isEmpty()||
-	 * !updateUserDTO.getPasswordToChange().isBlank()){
-	 * userFound.get().setPassword(updateUserDTO.getPasswordToChange()); }
-	 * if(!updateUserDTO.getUsernameToChange().isEmpty()||
-	 * !updateUserDTO.getUsernameToChange().isBlank()){
-	 * userFound.get().setUsername(updateUserDTO.getUsernameToChange()); }
-	 * if(!updateUserDTO.getAdresseMailToChange().isEmpty()||
-	 * !updateUserDTO.getAdresseMailToChange().isBlank()){
-	 * userFound.get().setEmail(updateUserDTO.getAdresseMailToChange()); }
-	 * 
-	 * return userRepository.save(userFound.get()); }
-	 */
-	
+		
 	@Test
 	public void testUpdateAccount_withoutException() throws Exception {
 			
-		  UpdateUserDTO adherentDTO = new UpdateUserDTO("adherentA","adherentA@gmail.com","adherentA", "adherentA",
-		  "AdherentB", "AdherentB@gmail.com", "AdherentB" );
-		  
-		  User adherentA = new User((long)1,"adherentA", "adherentA","adherentA@gmail.com",LocalDate.now()); 
-		  
-		  when(userRepository.findById((long)1)).thenReturn(Optional.of(adherentA));
-		  
-		  User adherentATest = userService.updateAccount((long)1,adherentDTO);
-		  
-		  Assert.assertTrue(adherentATest.getUsername().equals(adherentDTO.getUsernameToChange()));
-		  Assert.assertTrue(adherentATest.getPassword().equals(adherentDTO.getPasswordToChange())); 
-		  Assert.assertTrue(adherentATest.getEmail().equals(adherentDTO.getAdresseMailToChange()));
+		/*
+		 * UpdateUserDTO adherentDTO = new
+		 * UpdateUserDTO("adherentA","adherentA@gmail.com","adherentA", "adherentA",
+		 * "AdherentB", "AdherentB@gmail.com", "AdherentB" );
+		 * 
+		 * User adherentA = new User((long)1,"adherentA",
+		 * "adherentA","adherentA@gmail.com",LocalDate.now());
+		 * 
+		 * when(userRepository.findById((long)1)).thenReturn(Optional.of(adherentA));
+		 * 
+		 * User adherentATest = userService.updateAccount((long)1,adherentDTO);
+		 * 
+		 * Assert.assertTrue(adherentATest.getUsername().equals(adherentDTO.
+		 * getUsernameToChange()));
+		 * Assert.assertTrue(adherentATest.getPassword().equals(adherentDTO.
+		 * getPasswordToChange()));
+		 * Assert.assertTrue(adherentATest.getEmail().equals(adherentDTO.
+		 * getAdresseMailToChange()));
+		 */
 		 
 	}
 	

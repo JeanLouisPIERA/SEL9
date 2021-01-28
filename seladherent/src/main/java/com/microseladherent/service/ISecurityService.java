@@ -16,11 +16,5 @@ public interface ISecurityService {
 	 * 
 	 * User findLoggedInUser();
 	 */
-	/*
-	 * User autologin(UserDTO userDTO) throws EntityNotFoundException,
-	 * DeniedAccessException;
-	 * 
-	 * User login(UpdateUserDTO updateUserDTO) throws EntityNotFoundException,
-	 * DeniedAccessException;
-	 */
+	
 }

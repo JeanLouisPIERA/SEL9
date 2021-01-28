@@ -1,0 +1,119 @@
+databaseChangeLog:
+- changeSet:
+    id: 1611860858982-1
+    author: jeanl (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: ROLE_ID
+            type: BIGINT
+        - column:
+            name: NAME
+            type: INT
+        tableName: roles
+- changeSet:
+    id: 1611860858982-2
+    author: jeanl (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: USER_ID
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              unique: true
+            name: USERNAME
+            type: VARCHAR(100)
+        - column:
+            constraints:
+              nullable: false
+            name: PASSWORD
+            type: VARCHAR(25)
+        - column:
+            constraints:
+              nullable: false
+              unique: true
+            name: EMAIL
+            type: VARCHAR(100)
+        - column:
+            constraints:
+              nullable: false
+            name: DATE_ADHESION_DEBUT
+            type: date
+        - column:
+            name: DATE_ADHESION_FIN
+            type: date
+        - column:
+            name: DATE_BLOCAGE_DEBUT
+            type: date
+        - column:
+            name: DATE_BLOCAGE_FIN
+            type: date
+        tableName: users
+- changeSet:
+    id: 1611860858982-3
+    author: jeanl (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              primaryKey: true
+            name: user_id
+            type: BIGINT
+        - column:
+            constraints:
+              primaryKey: true
+            name: role_id
+            type: BIGINT
+        tableName: users_roles
+- changeSet:
+    id: 1611860858982-4
+    author: jeanl (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: role_id
+        indexName: role_id
+        tableName: users_roles
+- changeSet:
+    id: 1611860858982-5
+    author: jeanl (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: users_roles
+        constraintName: users_roles_ibfk_1
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: CASCADE
+        referencedColumnNames: USER_ID
+        referencedTableName: users
+        validate: true
+- changeSet:
+    id: 1611860858982-6
+    author: jeanl (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: role_id
+        baseTableName: users_roles
+        constraintName: users_roles_ibfk_2
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: CASCADE
+        referencedColumnNames: ROLE_ID
+        referencedTableName: roles
+        validate: true
+

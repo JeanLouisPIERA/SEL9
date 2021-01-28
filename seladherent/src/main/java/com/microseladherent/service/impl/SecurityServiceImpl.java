@@ -25,39 +25,7 @@ import com.microseladherent.service.ISecurityService;
 @Service
 public class SecurityServiceImpl implements ISecurityService {
 
-	/*
-	 * @Autowired private IUserRepository userRepository;
-	 * 
-	 * @Override public User autologin(UserDTO userDTO) throws
-	 * EntityNotFoundException, DeniedAccessException {
-	 * 
-	 * Optional<User> userToLog =
-	 * userRepository.findByUsername(userDTO.getUsername()); if
-	 * (!userToLog.isPresent()) throw new
-	 * EntityNotFoundException("Ce nom n'est pas enregistré"); if
-	 * (!userToLog.get().getPassword().equals(userDTO.getUsername())) throw new
-	 * DeniedAccessException("Le mot de passe n'est pas correct");
-	 * 
-	 * }
-	 * 
-	 * 
-	 * @Override public User login(UpdateUserDTO updateUserDTO) throws
-	 * EntityNotFoundException, DeniedAccessException {
-	 * 
-	 * Optional<User> userToLog =
-	 * userRepository.findByUsername(updateUserDTO.getUsername()); if
-	 * (!userToLog.isPresent()) throw new
-	 * EntityNotFoundException("Ce nom n'est pas enregistré en tant qu'utilisateur"
-	 * );
-	 * 
-	 * 
-	 * Optional<User> userToAuthenticate =
-	 * userRepository.findByUsernameAndPassword(updateUserDTO.getUsername(),
-	 * updateUserDTO.getPassword()); if (!userToAuthenticate.isPresent()) throw new
-	 * DeniedAccessException("Le mot de passe n'est pas correct");
-	 * 
-	 * return userToAuthenticate.get(); }
-	 */
+	
 	/*
 	 * @Autowired private AuthenticationManager authenticationManager;
 	 * 

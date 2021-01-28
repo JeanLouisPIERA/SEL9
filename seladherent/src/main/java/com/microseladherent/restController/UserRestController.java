@@ -64,7 +64,7 @@ public class UserRestController {
 	 * @throws WrongParametersException 
 	 * @throws EntityAlreadyExistsException 
 	   */
-	  @ApiOperation(value = "Enregistrement de son compte par un adhérent)", response = User.class)
+	  @ApiOperation(value = "Enregistrement de son compte par un adhérent", response = User.class)
 		@ApiResponses(value = {
 		        @ApiResponse(code = 201, message = "Le compte a été créé"),
 		        @ApiResponse(code = 400, message = "Les informations fournies ne sont pas correctes"),
@@ -93,6 +93,15 @@ public class UserRestController {
 	   * @throws DeniedAccessException
 	 * @throws WrongParametersException 
 	   */
+	  @ApiOperation(value = "Consultation de son compte par un adhérent", response = User.class)
+		@ApiResponses(value = {
+		        @ApiResponse(code = 201, message = "Le compte a été créé"),
+		        @ApiResponse(code = 400, message = "Les informations fournies ne sont pas correctes"),
+		        @ApiResponse(code = 404, message = "Ressource inexistante"),
+		        @ApiResponse(code = 409, message = "Un compte existe déjà avec cette adresse mail"),
+		        @ApiResponse(code = 423, message = "L'adresse mail n'est pas disponible"),
+		        @ApiResponse(code = 500, message = "Le mot de passe de confirmation n'est pas correct")
+		})
 	  @GetMapping("/users/accounts/{id}")
 	  public ResponseEntity<User> displayAccount(
 			  @PathVariable @Valid Long id, 
@@ -117,6 +126,15 @@ public class UserRestController {
 	 * @throws EntityNotFoundException 
 	 * @throws WrongParametersException 
 	   */
+	  @ApiOperation(value = "Mise à jour de son compte par un adhérent", response = User.class)
+		@ApiResponses(value = {
+		        @ApiResponse(code = 201, message = "Le compte a été créé"),
+		        @ApiResponse(code = 400, message = "Les informations fournies ne sont pas correctes"),
+		        @ApiResponse(code = 404, message = "Ressource inexistante"),
+		        @ApiResponse(code = 409, message = "Un compte existe déjà avec cette adresse mail"),
+		        @ApiResponse(code = 423, message = "L'adresse mail n'est pas disponible"),
+		        @ApiResponse(code = 500, message = "Le mot de passe de confirmation n'est pas correct")
+		})
 	  @PutMapping(value = "/users/accounts/update/{id}")
 	  	public ResponseEntity<User> updateAccount(
 	  			@PathVariable @Valid Long id, 
@@ -143,6 +161,15 @@ public class UserRestController {
 	 * @throws EntityNotFoundException 
 	 * @throws WrongParametersException 
 	   */
+	  @ApiOperation(value = "Cloture de son compte par un adhérent", response = User.class)
+		@ApiResponses(value = {
+		        @ApiResponse(code = 201, message = "Le compte a été créé"),
+		        @ApiResponse(code = 400, message = "Les informations fournies ne sont pas correctes"),
+		        @ApiResponse(code = 404, message = "Ressource inexistante"),
+		        @ApiResponse(code = 409, message = "Un compte existe déjà avec cette adresse mail"),
+		        @ApiResponse(code = 423, message = "L'adresse mail n'est pas disponible"),
+		        @ApiResponse(code = 500, message = "Le mot de passe de confirmation n'est pas correct")
+		})
 	  @PutMapping(value="/users/accounts/close/{id}")
 	  public ResponseEntity<User> closeAccount(
 			  @PathVariable @Valid Long id, 
@@ -165,6 +192,15 @@ public class UserRestController {
 	 * @throws EntityNotFoundException 
 	 * @throws WrongParametersException 
 	   */
+	  @ApiOperation(value = "Affichage de la liste de tous les adhérents par un membre du bureau", response = User.class)
+		@ApiResponses(value = {
+		        @ApiResponse(code = 201, message = "Le compte a été créé"),
+		        @ApiResponse(code = 400, message = "Les informations fournies ne sont pas correctes"),
+		        @ApiResponse(code = 404, message = "Ressource inexistante"),
+		        @ApiResponse(code = 409, message = "Un compte existe déjà avec cette adresse mail"),
+		        @ApiResponse(code = 423, message = "L'adresse mail n'est pas disponible"),
+		        @ApiResponse(code = 500, message = "Le mot de passe de confirmation n'est pas correct")
+		})
 	  @GetMapping("/bureau/accounts")
 	  public ResponseEntity<List<User>> showAllUsers(@Valid @RequestBody UserDTO userDTO
 			  ) throws EntityNotFoundException, DeniedAccessException, WrongParametersException {
@@ -182,6 +218,15 @@ public class UserRestController {
 	 * @throws EntityNotFoundException 
 	 * @throws WrongParametersException 
 	   */
+	  @ApiOperation(value = "Blocage du compte d'un adhérent par un membre du bureau", response = User.class)
+		@ApiResponses(value = {
+		        @ApiResponse(code = 201, message = "Le compte a été créé"),
+		        @ApiResponse(code = 400, message = "Les informations fournies ne sont pas correctes"),
+		        @ApiResponse(code = 404, message = "Ressource inexistante"),
+		        @ApiResponse(code = 409, message = "Un compte existe déjà avec cette adresse mail"),
+		        @ApiResponse(code = 423, message = "L'adresse mail n'est pas disponible"),
+		        @ApiResponse(code = 500, message = "Le mot de passe de confirmation n'est pas correct")
+		})
 	  @PutMapping(value = "/bureau/accounts/lock/{id}")
 	  	public ResponseEntity<User> lockAccount(
 	  			@PathVariable @Valid Long id, 
@@ -200,6 +245,15 @@ public class UserRestController {
 	 * @throws EntityNotFoundException 
 	 * @throws WrongParametersException 
 	   */
+	  @ApiOperation(value = "Déblocage du compte d'un adhérent par un membre du bureau)", response = User.class)
+		@ApiResponses(value = {
+		        @ApiResponse(code = 201, message = "Le compte a été créé"),
+		        @ApiResponse(code = 400, message = "Les informations fournies ne sont pas correctes"),
+		        @ApiResponse(code = 404, message = "Ressource inexistante"),
+		        @ApiResponse(code = 409, message = "Un compte existe déjà avec cette adresse mail"),
+		        @ApiResponse(code = 423, message = "L'adresse mail n'est pas disponible"),
+		        @ApiResponse(code = 500, message = "Le mot de passe de confirmation n'est pas correct")
+		})
 	  @PutMapping(value = "/bureau/accounts/unlock/{id}")
 	  	public ResponseEntity<User> unlockAccount(
 	  			@PathVariable @Valid Long id, 
@@ -222,6 +276,15 @@ public class UserRestController {
 	   * @throws EntityNotFoundException
 	   * @throws DeniedAccessException
 	   */
+	  @ApiOperation(value = "Promotion par un administrateur d'un adhérent à membre du bureau", response = User.class)
+		@ApiResponses(value = {
+		        @ApiResponse(code = 201, message = "Le compte a été créé"),
+		        @ApiResponse(code = 400, message = "Les informations fournies ne sont pas correctes"),
+		        @ApiResponse(code = 404, message = "Ressource inexistante"),
+		        @ApiResponse(code = 409, message = "Un compte existe déjà avec cette adresse mail"),
+		        @ApiResponse(code = 423, message = "L'adresse mail n'est pas disponible"),
+		        @ApiResponse(code = 500, message = "Le mot de passe de confirmation n'est pas correct")
+		})
 	  @PutMapping("/admin/accounts/bureau/{id}")
 	  public ResponseEntity<User> createBureau(
 			  @PathVariable @Valid Long id,
@@ -242,6 +305,15 @@ public class UserRestController {
 	 * @throws EntityNotFoundException 
 	 * @throws WrongParametersException 
 	   */
+	  @ApiOperation(value = "Rétrogradation par un administrateur d'un membre du bureau à adhérent", response = User.class)
+		@ApiResponses(value = {
+		        @ApiResponse(code = 201, message = "Le compte a été créé"),
+		        @ApiResponse(code = 400, message = "Les informations fournies ne sont pas correctes"),
+		        @ApiResponse(code = 404, message = "Ressource inexistante"),
+		        @ApiResponse(code = 409, message = "Un compte existe déjà avec cette adresse mail"),
+		        @ApiResponse(code = 423, message = "L'adresse mail n'est pas disponible"),
+		        @ApiResponse(code = 500, message = "Le mot de passe de confirmation n'est pas correct")
+		})
 	  @PutMapping(value = "/admin/accounts/bureau/close/{id}")
 	  	public ResponseEntity<User> closeBureau(
 	  			@PathVariable @Valid Long id, 
@@ -260,6 +332,15 @@ public class UserRestController {
 	   * @throws EntityNotFoundException
 	   * @throws DeniedAccessException
 	   */
+	  @ApiOperation(value = "Promotion par un administrateur d'un membre du bureau à administrateur", response = User.class)
+		@ApiResponses(value = {
+		        @ApiResponse(code = 201, message = "Le compte a été créé"),
+		        @ApiResponse(code = 400, message = "Les informations fournies ne sont pas correctes"),
+		        @ApiResponse(code = 404, message = "Ressource inexistante"),
+		        @ApiResponse(code = 409, message = "Un compte existe déjà avec cette adresse mail"),
+		        @ApiResponse(code = 423, message = "L'adresse mail n'est pas disponible"),
+		        @ApiResponse(code = 500, message = "Le mot de passe de confirmation n'est pas correct")
+		})
 	  @PutMapping("/admin/accounts/admin/{id}")
 	  public ResponseEntity<User> createAdmin(
 			  @PathVariable @Valid Long id,
@@ -280,6 +361,15 @@ public class UserRestController {
 	 * @throws EntityNotFoundException 
 	 * @throws WrongParametersException 
 	   */
+	  @ApiOperation(value = "Rétrogradation par un administrateur d'un administrateur à membre du bureau", response = User.class)
+		@ApiResponses(value = {
+		        @ApiResponse(code = 201, message = "Le compte a été créé"),
+		        @ApiResponse(code = 400, message = "Les informations fournies ne sont pas correctes"),
+		        @ApiResponse(code = 404, message = "Ressource inexistante"),
+		        @ApiResponse(code = 409, message = "Un compte existe déjà avec cette adresse mail"),
+		        @ApiResponse(code = 423, message = "L'adresse mail n'est pas disponible"),
+		        @ApiResponse(code = 500, message = "Le mot de passe de confirmation n'est pas correct")
+		})
 	  @PutMapping(value = "/admin/accounts/admin/close/{id}")
 	  	public ResponseEntity<User> closeAdmin(
 	  			@PathVariable @Valid Long id, 
