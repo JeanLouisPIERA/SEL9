@@ -1,0 +1,42 @@
+version: '3'
+services:
+  
+  mysql:
+   container_name: mysql
+   image: mysql:latest
+   environment:
+    MYSQL_DATABASE: microsel_adherent
+    MYSQL_ROOT_PASSWORD: mysql
+    MYSQL_USER: root
+    MYSQL_PASSWORD: mysql
+   ports:
+   - "1306:3306"
+   volumes:
+   - ./data/:/var/lib/mysql
+   networks: 
+   - mysql-db
+   restart: always
+
+  adherent:
+    container_name: adherent
+    image: adherent
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8085"
+    #depends_on:
+    #  - mysql
+    networks: 
+      - mysql-db
+    restart: always
+    depends_on: 
+      - mysql # This service depends on mysql. Start that first.
+    environment: # Pass environment variables to the service
+      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/microsel_adherent?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: mysql     
+
+networks: 
+  mysql-db:
+      driver: bridge
